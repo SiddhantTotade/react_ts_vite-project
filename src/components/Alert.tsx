@@ -6,7 +6,7 @@ interface Alert {
     severity: string;
 }
 
-const SubmitAlert: React.FC = (props) => {
+const SubmitAlert: React.FC<Alert> = (props) => {
     return (
         <Stack sx={{ marginTop: '10%' }}>
             <Alert severity={props.severity}>

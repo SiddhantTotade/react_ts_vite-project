@@ -1,3 +1,4 @@
+import { Grid2Props } from '@mui/material';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
@@ -12,7 +13,11 @@ interface Data {
     discountPercentage: string;
 }
 
-const APIData = () => {
+type DataGrid = {
+    rows: Grid2Props
+}
+
+const APIData: React.FC<DataGrid> = () => {
 
     const [data, setData] = useState<Data>({
         id: '',

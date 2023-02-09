@@ -14,7 +14,7 @@ interface AlertValues {
     severity: string;
 }
 
-const UserForm: React.FC = () => {
+const UserForm: React.FC<AlertValues> = () => {
 
     const navigate = useNavigate()
 
@@ -36,7 +36,7 @@ const UserForm: React.FC = () => {
         });
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
         if (formValues.name !== '' && formValues.email !== '' && formValues.phone !== '') {
