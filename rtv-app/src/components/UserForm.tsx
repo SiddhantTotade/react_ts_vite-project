@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Button, TextField, Box, Alert, AlertTitle, Stack } from '@mui/material';
+import { Button, TextField, Box } from '@mui/material';
+import SubmitAlert from './Alert';
+import Timer from './Timer';
 
 interface Props {
     onSubmit: (values: UserFormValues) => void;
@@ -59,11 +61,8 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
                 <TextField type='text' onChange={handleChange} value={formValues.email} id="email" name='email' label="Email" variant="standard" />
                 <TextField type='text' onChange={handleChange} value={formValues.phone} id="phone" name='phone' label="Phone" variant="standard" />
                 <Button sx={{ top: '30%' }} type='reset' variant="contained" onClick={handleSubmit}>Submit</Button>
-                <Stack sx={{ marginTop: '10%' }}>
-                    <Alert severity={alert.severity}>
-                        <AlertTitle>{alert.msg}</AlertTitle>
-                    </Alert>
-                </Stack>
+                <SubmitAlert msg={alert.msg} severity={alert.severity} />
+                <Timer />
             </Box>
         </>
     );
