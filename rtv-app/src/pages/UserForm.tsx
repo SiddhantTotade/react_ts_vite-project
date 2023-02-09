@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
-import SubmitAlert from './Alert';
-import Timer from './Timer';
+import SubmitAlert from '../components/Alert';
+import Timer from '../components/Timer';
 
 interface Props {
     onSubmit: (values: UserFormValues) => void;
@@ -18,7 +18,7 @@ interface AlertValues {
     severity: string;
 }
 
-const UserForm: React.FC<Props> = ({ onSubmit }) => {
+const UserForm: React.FC<Props> = () => {
 
     const [formValues, setFormValues] = useState<UserFormValues>({
         name: '',
@@ -62,7 +62,7 @@ const UserForm: React.FC<Props> = ({ onSubmit }) => {
                 <TextField type='text' onChange={handleChange} value={formValues.phone} id="phone" name='phone' label="Phone" variant="standard" />
                 <Button sx={{ top: '30%' }} type='reset' variant="contained" onClick={handleSubmit}>Submit</Button>
                 <SubmitAlert msg={alert.msg} severity={alert.severity} />
-                <Timer />
+                {/* <Timer /> */}
             </Box>
         </>
     );

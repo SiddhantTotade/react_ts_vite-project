@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Timer: React.FC = () => {
+const Timer: React.FC = (props) => {
     let seconds: number = 5;
 
     const makeIteration = (): void => {
@@ -15,8 +15,8 @@ const Timer: React.FC = () => {
     setTimeout(makeIteration, 1000);
 
     return (
-        <div className="App">
-            <h2>{seconds}</h2>
+        <div>
+            <h2>Redirect in {seconds}</h2>
         </div>
     )
 }
