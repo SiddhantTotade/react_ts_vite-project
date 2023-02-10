@@ -1,8 +1,8 @@
-import { Grid2Props } from '@mui/material';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { GridRowsProp } from '@mui/x-data-grid';
 import '../App.css'
 
 interface Data {
@@ -14,18 +14,18 @@ interface Data {
 }
 
 type DataGrid = {
-    rows: Grid2Props
+    rows: GridRowsProp
 }
 
-const APIData: React.FC<DataGrid> = () => {
+const APIData: React.FC = () => {
 
-    const [data, setData] = useState<Data>({
+    const [data, setData] = useState<Data[]>([{
         id: '',
         title: '',
         description: '',
         price: '',
         discountPercentage: '',
-    })
+    }])
 
     useEffect(() => {
         axios.get('https://dummyjson.com/products').then(res => setData(res.data.products))

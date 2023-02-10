@@ -1,16 +1,20 @@
-import React from 'react'
-import { Alert, AlertTitle, Stack } from '@mui/material'
+import { Alert, AlertColor, AlertTitle, Stack } from '@mui/material'
 
 interface Alert {
     msg: string;
-    severity: string;
+    severity: AlertColor;
 }
 
-const SubmitAlert: React.FC<Alert> = (props) => {
+// type Severity = 'error' | 'success' | 'info' | 'warning' | undefined
+
+const SubmitAlert = (props: Alert) => {
+
+    const { msg, severity } = props
+
     return (
         <Stack sx={{ marginTop: '10%' }}>
-            <Alert severity={props.severity}>
-                <AlertTitle>{props.msg}</AlertTitle>
+            <Alert severity={severity}>
+                <AlertTitle>{msg}</AlertTitle>
             </Alert>
         </Stack>
     )

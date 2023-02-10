@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, TextField, Box } from '@mui/material';
 import SubmitAlert from '../components/Alert';
 import { useNavigate } from 'react-router-dom';
+import { AlertColor } from '@mui/material';
 
 interface UserFormValues {
     name: string;
@@ -11,10 +12,10 @@ interface UserFormValues {
 
 interface AlertValues {
     msg: string;
-    severity: string;
+    severity: AlertColor;
 }
 
-const UserForm: React.FC<AlertValues> = () => {
+const UserForm = () => {
 
     const navigate = useNavigate()
 
@@ -26,7 +27,7 @@ const UserForm: React.FC<AlertValues> = () => {
 
     const [alert, setAlert] = useState<AlertValues>({
         msg: '',
-        severity: ''
+        severity: 'success'
     })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
