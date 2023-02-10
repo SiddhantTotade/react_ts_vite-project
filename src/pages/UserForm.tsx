@@ -13,7 +13,10 @@ interface UserFormValues {
 interface AlertValues {
     msg: string;
     severity: AlertColor;
+    display: string;
 }
+
+type Severity = { severity: AlertColor; msg: string; }
 
 const UserForm = () => {
 
@@ -27,7 +30,8 @@ const UserForm = () => {
 
     const [alert, setAlert] = useState<AlertValues>({
         msg: '',
-        severity: 'success'
+        severity: 'success',
+        display: 'none'
     })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,11 +48,11 @@ const UserForm = () => {
             localStorage.setItem('name', formValues.name)
             localStorage.setItem('email', formValues.email)
             localStorage.setItem('phone', formValues.phone)
-            setAlert({ msg: 'Data Saved Successfully', severity: 'success' })
+            setAlert({ msg: 'Data Saved Successfully', severity: 'success', display: 'block' })
             setTimeout(() => { navigate('/data') }, 5000)
         }
         else {
-            setAlert({ msg: 'All Fields are Required', severity: 'error' })
+            setAlert({ msg: 'All Fields are Required', severity: 'error', display: 'block' })
         }
 
         setFormValues({ email: '', name: '', phone: '' })
@@ -61,7 +65,7 @@ const UserForm = () => {
                 <TextField type='text' onChange={handleChange} value={formValues.email} id="email" name='email' label="Email" variant="standard" />
                 <TextField type='text' onChange={handleChange} value={formValues.phone} id="phone" name='phone' label="Phone" variant="standard" />
                 <Button sx={{ top: '30%' }} variant="contained" onClick={handleSubmit}>Submit</Button>
-                <SubmitAlert msg={alert.msg} severity={alert.severity} />
+                <SubmitAlert msg={alert.msg} severity={alert.severity} display={alert.display} />
             </Box>
         </>
     );

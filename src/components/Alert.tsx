@@ -3,16 +3,15 @@ import { Alert, AlertColor, AlertTitle, Stack } from '@mui/material'
 interface Alert {
     msg: string;
     severity: AlertColor;
+    display: string;
 }
-
-// type Severity = 'error' | 'success' | 'info' | 'warning' | undefined
 
 const SubmitAlert = (props: Alert) => {
 
-    const { msg, severity } = props
+    const { msg, severity, display } = props
 
     return (
-        <Stack sx={{ marginTop: '10%' }}>
+        <Stack sx={{ marginTop: '10%', display:{display} }}>
             <Alert severity={severity}>
                 <AlertTitle>{msg}</AlertTitle>
             </Alert>
