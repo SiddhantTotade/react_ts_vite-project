@@ -16,8 +16,6 @@ interface AlertValues {
     display: string;
 }
 
-type Severity = { severity: AlertColor; msg: string; }
-
 const UserForm = () => {
 
     const navigate = useNavigate()
